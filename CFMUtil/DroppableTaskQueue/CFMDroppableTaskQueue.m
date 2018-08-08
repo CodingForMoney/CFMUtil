@@ -43,6 +43,7 @@
         @synchronized(self) {
             if (!_currentTask && _nextTask) {
                 _currentTask = _nextTask;
+                _nextTask = nil;
                 dispatch_async(_queue, ^{
                     self.currentTask();
                     @synchronized(self) {
